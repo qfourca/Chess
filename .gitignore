@@ -1,0 +1,43 @@
+#개발 환경 관련 ⬇️
+
+.DS_Store
+.vscode
+
+#개발 환경 관련 ⬆️
+#Chess-ios ⬇️
+
+/Chess-ios/Pods
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+timeline.xctimeline
+playground.xcworkspace
+.build/
+Carthage/Build
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+#Chess-ios ⬆️
+#Chess-server ⬇️
+
+/Chess-server/node_modules
+/Chess-server/package-lock.json
+
+#Chess-server ⬆️
