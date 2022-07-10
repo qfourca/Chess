@@ -1,6 +1,7 @@
 import { Vector3 } from 'three'
 import Floor from './Floor'
 import Square from './Square'
+import { chess } from '../../init'
 import { clickEventListener } from '../../event/EventListeners'
 
 export default class Playground{
@@ -11,7 +12,7 @@ export default class Playground{
             this.squares[i] = new Array(8)
             for(let j = 0; j < 8; j++) {
                 this.squares[i][j] = new Square(i % 2 != j % 2)
-                clickEventListener.addEvent(this.squares[i][j].mesh, () => console.log(`pos: ${i}, ${j}`))
+                clickEventListener.addEvent(this.squares[i][j].mesh, () => console.log(chess.board.moveable({file: i, rank: j})))
             }
         }
     }

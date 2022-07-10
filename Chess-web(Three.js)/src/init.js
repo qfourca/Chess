@@ -23,12 +23,7 @@ export default () => {
 
 	const chessboard = new Chessboard()
 	chessboard.render(scene)
-
-	const chessgame = new Chess()
 	
-
-	
-
 	autoRender()
 }
 
@@ -36,4 +31,5 @@ export const scene = new Scene()
 export const camera = new Camera(75, window.innerWidth / window.innerHeight)
 export const renderer = new Renderer(window.innerWidth, window.innerHeight, document.getElementById('three-js container'))
 export const raycaster = new Raycaster()
+export const chess = new Chess()
 export const render = () => renderer.render(scene, camera)
