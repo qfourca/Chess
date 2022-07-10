@@ -1,4 +1,3 @@
-
 import { Vector3 } from 'three'
 import Floor from './Floor'
 import Square from './Square'

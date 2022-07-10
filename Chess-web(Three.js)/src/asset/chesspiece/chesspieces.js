@@ -1,35 +1,29 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-export let pawn = new Object
-export let bisop = new Object
-export let knight = new Object
-export let rook = new Object
-export let queen = new Object
-export let king = new Object
+export let pawn = new Object()
+export let bisop = new Object()
+export let knight = new Object()
+export let rook = new Object()
+export let queen = new Object()
+export let king = new Object()
+export let loading = true
 
-const pieceList = [
-    { piece: pawn, name: "pawn" },
-    { piece: bisop, name: "bisop" },
-    { piece: knight, name: "knight" },
-    { piece: rook, name: "rook" },
-    { piece: queen, name: "queen" },
-    { piece: king, name: "king" }
-]
 
 const loader = new GLTFLoader()
-loader.load( './static/assets/chesspieces.glb', ( gltf ) =>{
+loader.load( './static/assets/chesspieces.glb', ( gltf ) => {
     console.log('loading success')
     gltf.scene.children.forEach(element => {
-        pieceList.forEach(piece => {
-            if(piece.name === element.name) {
-                element.scale.set(50, 50, 50)
-                piece.piece = element
-                console.log(piece.name)
-            }
-
-        })
+        element.scale.set(50, 50, 50)
+        switch (element.name) {
+            case 'pawn': pawn = element; break;
+            case 'bisop': bisop = element; break;
+            case 'knight': knight = element; break;
+            case 'rook': rook = element; break;
+            case 'queen': queen = element; break;
+            case 'king': king = element; break;
+        }
     })
+    loading = false
 }, undefined, ( error ) => {
     console.error( error );
 } );
-

@@ -15,6 +15,7 @@ export default class Floor{
                 this.mesh.position.set(opction.position.x, opction.position.y, opction.position.z)
             }
         }
+        
         scene.add(this.mesh)
     }
 }

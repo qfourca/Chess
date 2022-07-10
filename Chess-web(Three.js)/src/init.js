@@ -6,29 +6,30 @@ import Renderer from './easy/Renderer'
 import Raycaster from './easy/Raycaster'
 
 import Chessboard from './asset/chessboard/Chessboard'
-import Pon from './asset/chesspiece/Pon'
 
-function animate() { 
-	renderer.render(scene,camera); 
-	requestAnimationFrame(animate); 
+import Chess from './logic/Chess'
+
+import Moveable from './asset/Moveable'
+
+function autoRender() { 
+	render()
+	requestAnimationFrame(autoRender); 
 }
 export default () => {
 	const ligit = new THREE.DirectionalLight(0xffffff)
 	ligit.position.set(0, 0, 1000)
 	scene.add(ligit)
 
-	// const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4); 
-	// hemiLight.position.set(0, 0, 1000)
-	// scene.add(hemiLight);
-
 
 	const chessboard = new Chessboard()
 	chessboard.render(scene)
-	
-	const pon = new Pon(scene)
 
-	animate()
-	// render()
+	const chessgame = new Chess()
+	
+
+	
+
+	autoRender()
 }
 
 export const scene = new Scene()
