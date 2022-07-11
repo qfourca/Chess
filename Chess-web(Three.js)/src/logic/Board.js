@@ -50,9 +50,11 @@ export default class Board {
             if(temp == undefined) {
                 ret[coordinate.file][coordinate.rank] = true
                 coordinate.file += 1
-                temp = this.getPiece(coordinate)
-                if(coordinate.file == 3 && temp == undefined) {
-                    ret[coordinate.file][coordinate.rank] = true
+                if(coordinate.file == 3) {
+                    temp = this.getPiece(coordinate)
+                    if(temp == undefined) {
+                        ret[coordinate.file][coordinate.rank] = true
+                    }
                 }
             }
             coordinate = mypos
@@ -78,9 +80,11 @@ export default class Board {
             if(temp == undefined) {
                 ret[coordinate.file][coordinate.rank] = true
                 coordinate.file -= 1
-                temp = this.getPiece(coordinate)
-                if(coordinate.file == 4 && temp == undefined) {
-                    ret[coordinate.file][coordinate.rank] = true
+                if(coordinate.file == 4) {
+                    temp = this.getPiece(coordinate)
+                    if(temp == undefined) {
+                        ret[coordinate.file][coordinate.rank] = true
+                    }
                 }
             }
             coordinate = mypos

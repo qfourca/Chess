@@ -3,10 +3,11 @@ import Moveable from "../asset/Moveable"
 import { scene } from "../init";
 import Coordinate from "./Coordinate";
 export default class Chess {
-    constructor() {
+    constructor(color) {
         this.board = new Board()
         this.moveable = new Array
         this.clicked = undefined
+        this.myColor = color
     }
     click(coordinate) {
         if(this.clicked) {
@@ -23,7 +24,6 @@ export default class Chess {
                     this.__removeMoveable__()
                     this.__renderMoveable__(moveable)
                 }
-
             }
         }
         else {
@@ -45,7 +45,7 @@ export default class Chess {
         this.board.board[to.file][to.rank] = fromPiece
         this.board.board[from.file][from.rank] = undefined
         if(toPiece != undefined) toPiece.dispose(scene)
-        fromPiece.move(to)
+        fromPiece.move(to, 70)
     }
     __renderMoveable__(moveable) {
         moveable.forEach((first, i) => {

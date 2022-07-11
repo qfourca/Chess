@@ -25,10 +25,21 @@ export default class Piece {
             }   
         }, 10);
     }
-    move(coordinate) {
+    move(coordinate, speed) {
         this.coordinate = coordinate
+        const currPos = this.position
         this.position = this.coordinate.toPos()
-        this.mesh.position.set(this.position.x, this.position.y, 5)
+        const oneTime = {x: (this.position.x - currPos.x) / speed, y: (this.position.y - currPos.y) / speed};
+        let count = speed;
+
+        const anime = () => {
+            this.mesh.position.x += oneTime.x
+            this.mesh.position.y += oneTime.y
+            if(--count > 0) {
+                requestAnimationFrame(anime)
+            }
+        }
+        anime(this.position)
     }
     dispose(scene) {
         scene.remove(this.mesh)
