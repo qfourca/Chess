@@ -12,4 +12,7 @@ export default class Coordinate {
             y: -350 + this.file * 100
         }
     }
+    outOfBound() {
+        return !(this.file < 8 && this.file >= 0 && this.rank < 8 && this.rank >= 0)
+    }
 }

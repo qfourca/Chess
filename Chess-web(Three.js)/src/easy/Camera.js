@@ -8,4 +8,3 @@ export default class Camera extends THREE.PerspectiveCamera{
 		this.rotation.x = 0.3
 	}
 }
-

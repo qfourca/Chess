@@ -13,7 +13,7 @@ const loader = new GLTFLoader()
 loader.load( './static/assets/chesspieces.glb', ( gltf ) => {
     console.log('loading success')
     gltf.scene.children.forEach(element => {
-        element.scale.set(50, 50, 50)
+        element.scale.set(40, 40, 40)
         switch (element.name) {
             case 'pawn': pawn = element; break;
             case 'bisop': bisop = element; break;

@@ -20,9 +20,17 @@ export default class Piece {
                     case 'king': this.mesh = king.clone(); break;
                 }
                 this.mesh.material = new THREE.MeshStandardMaterial({color: color ? 0xffffff : 0x4B0D0D})
-                this.mesh.position.set(this.position.x, this.position.y, 10)
+                this.mesh.position.set(this.position.x, this.position.y, 5)
                 scene.add(this.mesh)
             }   
         }, 10);
+    }
+    move(coordinate) {
+        this.coordinate = coordinate
+        this.position = this.coordinate.toPos()
+        this.mesh.position.set(this.position.x, this.position.y, 5)
+    }
+    dispose(scene) {
+        scene.remove(this.mesh)
     }
 }

@@ -3,6 +3,7 @@ import Floor from './Floor'
 import Square from './Square'
 import { chess } from '../../init'
 import { clickEventListener } from '../../event/EventListeners'
+import Coordinate from '../../logic/Coordinate'
 
 export default class Playground{
     constructor() {
@@ -12,7 +13,7 @@ export default class Playground{
             this.squares[i] = new Array(8)
             for(let j = 0; j < 8; j++) {
                 this.squares[i][j] = new Square(i % 2 != j % 2)
-                clickEventListener.addEvent(this.squares[i][j].mesh, () => console.log(chess.board.moveable({file: i, rank: j})))
+                clickEventListener.addEvent(this.squares[i][j].mesh, () => chess.click(new Coordinate(j, i)))
             }
         }
     }
@@ -27,5 +28,8 @@ export default class Playground{
                 })
             })
         })
+    }
+    __moveableDraw__() {
+        chess.renderMoveable(chess.board.moveable)
     }
 }
